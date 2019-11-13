@@ -202,27 +202,27 @@ deps.navigation = navigation
 
 ext.deps = deps
 
-def addRepos(RepositoryHandler handler) {
+def addRepos(RepositoryHandler handler,String uname,String upass,String libUrl) {
     handler.maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
     }
-	handler.maven { 
-		url 'http://maven.aliyun.com/nexus/content/groups/public/'
-	}
     handler.maven {
-		url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
-	}
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    handler.maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+    }
     handler.maven { url 'http://maven.aliyun.com/nexus/content/repositories/google'
-	}
-    handler.maven { 
-		url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
-	}
-  handler.maven {
-    credentials {
-       username '8hbwjC'
-       password 'EC5nn6ERqo'
-      }
-      url 'https://repo.rdc.aliyun.com/repository/48998-release-2VYKJa'
+    }
+    handler.maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
+    }
+    handler.maven {
+        credentials {
+            username uname
+            password upass
+        }
+        url libUrl
     }
 }
 ext.addRepos = this.&addRepos
