@@ -202,7 +202,7 @@ deps.navigation = navigation
 
 ext.deps = deps
 
-def addRepos(RepositoryHandler handler,String uname,String upass,String liburl) {
+def addRepos(RepositoryHandler handler) {
     handler.maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
     }
