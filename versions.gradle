@@ -49,6 +49,7 @@ versions.butterknife = "10.1.0"
 versions.arouter_version = "1.2.4"
 versions.arouter_processor_version = "1.1.4"
 versions.rxdatabing = "2.0.0"
+versions.autosize="1.1.2"
 ext.versions = versions
 
 def deps = [:]
@@ -170,7 +171,7 @@ deps.gson = "com.google.code.gson:gson:$versions.gson_version"
 deps.compile_butterknife = "com.jakewharton:butterknife:$versions.butterknife"
 deps.annotationProcessor_butterknife = "com.jakewharton:butterknife-compiler:$versions.butterknife"
 deps.rxdatabinding = "com.jakewharton.rxbinding2:rxbinding:$versions.rxdatabing"
-
+deps.autosize = "me.jessyan:autosize:$versions.autosize"
 def build_versions = [:]
 build_versions.min_sdk = 19
 build_versions.target_sdk = 29
