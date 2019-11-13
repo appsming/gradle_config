@@ -202,7 +202,7 @@ deps.navigation = navigation
 
 ext.deps = deps
 
-def addRepos(RepositoryHandler handler) {
+def addRepos(RepositoryHandler handler,String uname,String upass,String liburl) {
     handler.maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
     }
@@ -217,26 +217,12 @@ def addRepos(RepositoryHandler handler) {
     handler.maven { 
 		url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
 	}
-
-    if (MBDEVSDK_RELEASE){
-        handler.maven {
-            credentials {
-                username NEXUS_USERNAME
-                password NEXUS_PASSWORD
-            }
-            url RELEASE_REPOSITORY_URL
-        }
-    }else {
-        handler.maven {
-            credentials {
-                username NEXUS_USERNAME
-                password NEXUS_PASSWORD
-            }
-            url SNAPSHOT_REPOSITORY_URL
-        }
+  handler.maven {
+    credentials {
+       username '8hbwjC'
+       password 'EC5nn6ERqo'
+      }
+      url 'https://repo.rdc.aliyun.com/repository/48998-release-2VYKJa'
     }
-
-
-	
 }
 ext.addRepos = this.&addRepos
