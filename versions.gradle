@@ -203,31 +203,19 @@ deps.navigation = navigation
 ext.deps = deps
 
 def addRepos(RepositoryHandler handler) {
-    handler.google()
-    handler.jcenter()
     handler.maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
     }
-    if (MBDEVSDK_RELEASE){
-        handler.maven {
-            credentials {
-                username NEXUS_USERNAME
-                password NEXUS_PASSWORD
-            }
-            url RELEASE_REPOSITORY_URL
-        }
-    }else {
-        handler.maven {
-            credentials {
-                username NEXUS_USERNAME
-                password NEXUS_PASSWORD
-            }
-            url SNAPSHOT_REPOSITORY_URL
-        }
-    }
-
-
-
-
+	handler.maven { 
+		url 'http://maven.aliyun.com/nexus/content/groups/public/'
+	}
+    handler.maven {
+		url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+	}
+    handler.maven { url 'http://maven.aliyun.com/nexus/content/repositories/google'
+	}
+    handler.maven { 
+		url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
+	}	   
 }
 ext.addRepos = this.&addRepos
