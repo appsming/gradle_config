@@ -216,6 +216,27 @@ def addRepos(RepositoryHandler handler) {
 	}
     handler.maven { 
 		url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
-	}	   
+	}
+
+    if (MBDEVSDK_RELEASE){
+        handler.maven {
+            credentials {
+                username NEXUS_USERNAME
+                password NEXUS_PASSWORD
+            }
+            url RELEASE_REPOSITORY_URL
+        }
+    }else {
+        handler.maven {
+            credentials {
+                username NEXUS_USERNAME
+                password NEXUS_PASSWORD
+            }
+            url SNAPSHOT_REPOSITORY_URL
+        }
+    }
+
+
+	
 }
 ext.addRepos = this.&addRepos
